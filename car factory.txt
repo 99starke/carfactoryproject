@@ -1,0 +1,111 @@
+class App {
+    public static void main(String[] args) {
+   Car car1 = new Car();
+   car1.Start();
+   car1.setAge(10);
+   car1.setID(5434);
+   car1.setKey('f');
+    
+   car1.showDisplay();
+   car1.Stop();
+    
+   Honda hon1 = new Honda();
+    hon1.setDistance(1000);
+    hon1.setMileage(500);
+    hon1.showRPM(1000.0, 440.5);
+    }
+}
+class Car implements Machine {
+     
+    private int ID;
+    private char key;
+    private double mileage;
+    private int age;
+     
+    public void Start() {
+        System.out.println("Car started");
+    }
+    public void Stop() {
+        System.out.println("Car stopped.");
+    }
+    public void showDisplay() {
+        System.out.println("Car ID is: " + this.ID + " with key: " + this.key);
+    }
+ 
+    public int getID() {
+        return ID;
+    }
+ 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+ 
+    public char getKey() {
+        return key;
+    }
+ 
+    public void setKey(char key) {
+        this.key = key;
+    }
+ 
+    public double getMileage() {
+        return mileage;
+    }
+ 
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
+    }
+ 
+    public int getAge() {
+        return age;
+    }
+ 
+    public void setAge(int age) {
+        this.age = age;
+    }
+     
+     
+     
+}
+class Honda extends Car implements Machine {
+    {
+}
+    private double mileage;
+    private double distance;
+    private double rpm = mileage * distance;
+     
+    public double showRPM(double mileage, double distance) {
+        System.out.println("Milage " + mileage + " distance " + distance);
+      return mileage + distance; 
+    } 
+ 
+    public double getMileage() {
+        return mileage;
+    }
+ 
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
+    }
+ 
+    public double getDistance() {
+        return distance;
+    }
+ 
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+ 
+    public double getRpm() {
+        return rpm;
+    }
+ 
+    public void setRpm(double rpm) {
+        this.rpm = rpm;
+    }
+ 
+}
+public interface Machine {
+    public void Start();
+    public void Stop();
+}
+
